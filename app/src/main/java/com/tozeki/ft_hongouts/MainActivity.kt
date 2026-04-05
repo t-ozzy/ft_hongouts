@@ -2,9 +2,12 @@ package com.tozeki.ft_hongouts
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import androidx.appcompat.widget.Toolbar
 import com.tozeki.ft_hongouts.data.Contact
 import com.tozeki.ft_hongouts.data.ContactRepository
 import com.tozeki.ft_hongouts.data.DatabaseHelper
@@ -21,6 +24,12 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Note: 共通化できそう
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Contacts"
+
+        //Note: 共通化できそう
         repository = ContactRepository(DatabaseHelper(this))
 
         listView = findViewById(R.id.list_contacts)

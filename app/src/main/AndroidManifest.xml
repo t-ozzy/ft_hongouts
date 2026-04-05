@@ -23,13 +23,11 @@
 
         <activity
             android:name=".ContactDetailActivity"
-            android:exported="false"
-            android:label="Contact Details" />
+            android:exported="false" />
 
         <activity
             android:name=".ContactEditActivity"
-            android:exported="false"
-            android:label="Edit Contact" />
+            android:exported="false" />
 
     </application>
 

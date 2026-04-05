@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.tozeki.ft_hongouts.data.Contact
 import com.tozeki.ft_hongouts.data.ContactRepository
 import com.tozeki.ft_hongouts.data.DatabaseHelper
@@ -24,6 +25,12 @@ class ContactEditActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_edit)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Edit Contact"
+        toolbar.setNavigationOnClickListener { finish() }
 
         repository = ContactRepository(DatabaseHelper(this))
         contactId = intent.getLongExtra("contact_id", -1)
