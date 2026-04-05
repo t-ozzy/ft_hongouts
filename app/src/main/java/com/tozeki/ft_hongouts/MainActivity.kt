@@ -5,12 +5,11 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
-import androidx.appcompat.app.AppCompatActivity
 import com.tozeki.ft_hongouts.data.Contact
 import com.tozeki.ft_hongouts.data.ContactRepository
 import com.tozeki.ft_hongouts.data.DatabaseHelper
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var listView: ListView
     private lateinit var addButton: Button

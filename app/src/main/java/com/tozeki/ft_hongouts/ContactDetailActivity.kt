@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.tozeki.ft_hongouts.data.ContactRepository
 import com.tozeki.ft_hongouts.data.DatabaseHelper
 
-class ContactDetailActivity : AppCompatActivity() {
+class ContactDetailActivity : BaseActivity() {
 
     private lateinit var nameText: TextView
     private lateinit var phoneText: TextView

@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.tozeki.ft_hongouts.data.Contact
 import com.tozeki.ft_hongouts.data.ContactRepository
 import com.tozeki.ft_hongouts.data.DatabaseHelper
 
-class ContactEditActivity : AppCompatActivity() {
+class ContactEditActivity : BaseActivity() {
 
     private lateinit var lastNameEdit: EditText
     private lateinit var firstNameEdit: EditText
