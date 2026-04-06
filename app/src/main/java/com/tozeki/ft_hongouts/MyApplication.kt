@@ -13,7 +13,7 @@ import java.util.Locale
 class MyApplication : Application(), DefaultLifecycleObserver {
 
     override fun onCreate() {
-        super<Application>.onCreate() 
+        super<Application>.onCreate()
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
     }
 
@@ -21,19 +21,19 @@ class MyApplication : Application(), DefaultLifecycleObserver {
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
         Log.d("AppLifecycle", "アプリがフォアグラウンドに戻りました")
-		
-		val sharedPref = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
-		with(sharedPref.edit()) {
-			putBoolean("should_show_toast", true)
-			apply()
-		}
-	}
+
+        val sharedPref = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putBoolean("should_show_toast", true)
+            apply()
+        }
+    }
 
     // アプリがバックグラウンドになった時に呼ばれる
     override fun onStop(owner: LifecycleOwner) {
         super.onStop(owner)
         Log.d("AppLifecycle", "アプリがバックグラウンドに移動しました")
-        
+
         val sharedPref = getSharedPreferences("AppPrefs", Context.MODE_PRIVATE)
         val sdf = SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.US)
         val currentDateTime = sdf.format(Date())
