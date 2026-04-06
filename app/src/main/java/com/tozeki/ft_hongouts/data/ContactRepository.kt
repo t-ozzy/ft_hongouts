@@ -86,6 +86,28 @@ class ContactRepository(private val dbHelper: DatabaseHelper) {
         return contacts
     }
 
+    // 電話番号で連絡先を検索
+    fun getContactByPhoneNumber(phoneNumber: String): Contact? {
+        val db = dbHelper.readableDatabase
+        val cursor = db.query(
+            DatabaseHelper.TABLE_CONTACTS,
+            null,
+            "${DatabaseHelper.COLUMN_PHONE} = ?",
+            arrayOf(phoneNumber),
+            null,
+            null,
+            null
+        )
+
+        return cursor.use {
+            if (it.moveToFirst()) {
+                cursorToContact(it)
+            } else {
+                null
+            }
+        }
+    }
+
     private fun cursorToContact(cursor: Cursor): Contact {
         return Contact(
             id = cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ID)),
